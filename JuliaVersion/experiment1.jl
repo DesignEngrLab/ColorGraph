@@ -17,10 +17,10 @@ generate = ExhaustiveHillClimbing
 scores = Array{Float64, 2}(undef, numTests, maxDepth)
 for i=1:numTests
 
-global    alphaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
-global    betaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
-global    gammaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
-        testTree1 = generate(1)
+    global    alphaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
+    global    betaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
+    global    gammaScoreMatrix = 10 .* rand(numColors+1,numColors+1) .- 5
+    testTree1 = generate(1)
     scores[i,1]= GetCombinedScore(testTree1)
     for j=2:maxDepth
         testTree1 = generate(1, cand=testTree1)
